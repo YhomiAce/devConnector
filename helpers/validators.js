@@ -21,7 +21,15 @@ const registerValidation = ()=>{
     ];
 }
 
+const loginValidation = ()=>{
+    return [
+        check('email',"Please use a valid Email").isEmail(),
+        check('password',"Please enter a password with 5 or more characters").isLength({min: 5})
+    ];
+}
+
 module.exports = {
     validate,
-    registerValidation
+    registerValidation,
+    loginValidation
 }

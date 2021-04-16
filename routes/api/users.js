@@ -9,4 +9,5 @@ const {validate, registerValidation} = require('../../helpers/validators');
 // @desc register user
 router.post('/', registerValidation(), validate ,UserController.registerUser);
 
+
 module.exports = router;
