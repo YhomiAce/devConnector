@@ -61,3 +61,21 @@ exports.registerUser = async (req, res)=>{
         });
     }
 }
+
+exports.getLoggedInUser =  async(req, res)=>{
+    try {
+        const user = await User.findById(req.user.id).select('-password');
+        return res.status(200).send({
+            success: true,
+            user
+        })
+
+    } catch (error) {
+        console.error(error.message);
+        return res.status(500).send({
+            success: false,
+            message: 'Server Error',
+            data: error.message
+        });
+    }
+}
