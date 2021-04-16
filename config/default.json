@@ -1,4 +1,5 @@
 {
     "MONGO_URI": "mongodb+srv://Yhomi:ace18081996@cluster0.yay1n.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-    "LOCAL_MONGO": "mongodb://localhost/devconnector"
+    "LOCAL_MONGO": "mongodb://localhost/devconnector",
+    "JWT_SECRET": "secretetokenforjwt1234567890!@#%^&*()_+\\///"
 }
