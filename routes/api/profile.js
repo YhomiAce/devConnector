@@ -8,4 +8,8 @@ const ProfileController = require('../../controllers/ProfileController');
 // @access Private
 router.get('/me', Auth, ProfileController.getProfile );
 
+router.get("/test",(req,res)=>{
+    res.send("Test with ma nigga");
+})
+
 module.exports = router;
