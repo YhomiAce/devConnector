@@ -28,8 +28,16 @@ const loginValidation = ()=>{
     ];
 }
 
+const profileValidation = () => {
+  return [
+    check('status', "Status is required").notEmpty(),
+    check('skills', "Skills is required").notEmpty()
+  ]
+}
+
 module.exports = {
     validate,
     registerValidation,
-    loginValidation
+    loginValidation,
+    profileValidation
 }
