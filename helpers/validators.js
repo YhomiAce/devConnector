@@ -62,6 +62,10 @@ const postValidator = () => {
   return [check("text", "Text is required").notEmpty()];
 };
 
+const commentValidator = () => {
+  return [check("text", "Text is required").notEmpty()];
+};
+
 module.exports = {
   validate,
   registerValidation,
@@ -70,4 +74,5 @@ module.exports = {
   experienceValidator,
   educationValidator,
   postValidator,
+  commentValidator,
 };
