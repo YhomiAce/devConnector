@@ -36,6 +36,7 @@ const AuthReducer = (state = initialState, action) => {
         isAuthenticated: true,
       };
     case actionTypes.AUTH_ERROR:
+    case actionTypes.LOGOUT:
       localStorage.removeItem("token");
       return {
         ...state,

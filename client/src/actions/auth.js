@@ -35,9 +35,10 @@ export const loadUser = () => async (dispatch) => {
   }
   try {
     const res = await axios.get("/api/auth");
+    console.log(res.data.user);
     dispatch({
       type: actionTypes.USER_LOADED,
-      payload: res.data,
+      payload: res.data.user,
     });
   } catch (err) {
     dispatch({
@@ -69,4 +70,10 @@ export const login = (loginData) => async (dispatch) => {
       type: actionTypes.LOGIN_FAIL,
     });
   }
+};
+
+// Logout
+export const logout = () => (dispatch) => {
+  dispatch({ type: actionTypes.CLEAR_PROFILE });
+  dispatch({ type: actionTypes.LOGOUT });
 };
