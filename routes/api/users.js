@@ -3,7 +3,7 @@ const router = express.Router();
 const UserController = require('../../controllers/UserController');
 const {validate, registerValidation} = require('../../helpers/validators');
 
-// @route  api/user
+// @route  api/users
 // @method POST
 // @access Public
 // @desc register user
