@@ -181,3 +181,63 @@ export const deleteAccount = () => async (dispatch) => {
     }
   }
 };
+
+// Fetch All Profiles
+export const getProfiles = () => async (dispatch) => {
+  dispatch({ type: actionTypes.CLEAR_PROFILE });
+  try {
+    const res = await axios.get("/api/profile");
+    dispatch({
+      type: actionTypes.GET_PROFILES,
+      payload: res.data.profiles,
+    });
+  } catch (err) {
+    dispatch({
+      type: actionTypes.PROFILE_ERROR,
+      payload: {
+        msg: err.response.statusText,
+        status: err.response.status,
+      },
+    });
+  }
+};
+
+// Fetch Profile by :Id
+export const getProfileById = (userId) => async (dispatch) => {
+  
+  try {
+    const res = await axios.get(`/api/profile/user/${userId}`);
+    dispatch({
+      type: actionTypes.GET_PROFILE,
+      payload: res.data.profiles,
+    });
+  } catch (err) {
+    dispatch({
+      type: actionTypes.PROFILE_ERROR,
+      payload: {
+        msg: err.response.statusText,
+        status: err.response.status,
+      },
+    }); 
+  }
+};
+
+// Fetch Github Repos by :username
+export const getGithubRepos = (username) => async (dispatch) => {
+  
+  try {
+    const res = await axios.get(`/api/profile/github/${username}`);
+    dispatch({
+      type: actionTypes.GET_GITHUB,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: actionTypes.PROFILE_ERROR,
+      payload: {
+        msg: err.response.statusText,
+        status: err.response.status,
+      },
+    }); 
+  }
+};

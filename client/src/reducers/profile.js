@@ -31,6 +31,18 @@ const ProfileReducer = (state = initialState, action) => {
         repos: [],
         loading: false,
       };
+    case actionTypes.GET_PROFILES:
+      return {
+        ...state,
+        profiles: payload,
+        loading: false,
+      };
+    case actionTypes.GET_GITHUB:
+      return {
+        ...state,
+        repos: payload,
+        loading: false,
+      };
     default:
       return state;
   }
