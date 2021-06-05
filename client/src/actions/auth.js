@@ -73,7 +73,8 @@ export const login = (loginData) => async (dispatch) => {
 };
 
 // Logout
-export const logout = () => (dispatch) => {
+export const logout = (history) => (dispatch) => {
   dispatch({ type: actionTypes.CLEAR_PROFILE });
   dispatch({ type: actionTypes.LOGOUT });
+  history.push("/");
 };

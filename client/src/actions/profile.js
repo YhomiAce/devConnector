@@ -5,6 +5,7 @@ import { setAlert } from "./alert";
 export const getCurrentProfile = () => async (dispatch) => {
   try {
     const res = await axios.get("/api/profile/me");
+    console.log(res.data.profile);
     dispatch({
       type: actionTypes.GET_PROFILE,
       payload: res.data.profile,
@@ -204,27 +205,26 @@ export const getProfiles = () => async (dispatch) => {
 
 // Fetch Profile by :Id
 export const getProfileById = (userId) => async (dispatch) => {
-  
   try {
     const res = await axios.get(`/api/profile/user/${userId}`);
     dispatch({
       type: actionTypes.GET_PROFILE,
-      payload: res.data.profiles,
+      payload: res.data.profile,
     });
   } catch (err) {
+    console.log(err);
     dispatch({
       type: actionTypes.PROFILE_ERROR,
       payload: {
         msg: err.response.statusText,
         status: err.response.status,
       },
-    }); 
+    });
   }
 };
 
 // Fetch Github Repos by :username
 export const getGithubRepos = (username) => async (dispatch) => {
-  
   try {
     const res = await axios.get(`/api/profile/github/${username}`);
     dispatch({
@@ -238,6 +238,6 @@ export const getGithubRepos = (username) => async (dispatch) => {
         msg: err.response.statusText,
         status: err.response.status,
       },
-    }); 
+    });
   }
 };
