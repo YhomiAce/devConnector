@@ -162,15 +162,8 @@ exports.deleteProfile = async (req, res) => {
 
 exports.addExperience = async (req, res) => {
   try {
-    const {
-      title,
-      company,
-      location,
-      from,
-      to,
-      current,
-      description,
-    } = req.body;
+    const { title, company, location, from, to, current, description } =
+      req.body;
 
     const newExp = {
       title,
@@ -223,15 +216,8 @@ exports.deleteExperience = async (req, res) => {
 
 exports.addEducation = async (req, res) => {
   try {
-    const {
-      school,
-      degree,
-      fieldOfStudy,
-      from,
-      to,
-      current,
-      description,
-    } = req.body;
+    const { school, degree, fieldOfStudy, from, to, current, description } =
+      req.body;
 
     const newEd = {
       school,

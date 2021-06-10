@@ -212,11 +212,11 @@ export const getProfileById = (userId) => async (dispatch) => {
       payload: res.data.profile,
     });
   } catch (err) {
-    console.log(err);
+    console.log(err.response);
     dispatch({
       type: actionTypes.PROFILE_ERROR,
       payload: {
-        msg: err.response.statusText,
+        msg: err.response.data.message,
         status: err.response.status,
       },
     });
